@@ -1,4 +1,4 @@
-package com.jfiles;
+package com.jfiles.JFiles;
 
 import org.apache.commons.io.FileUtils;
 

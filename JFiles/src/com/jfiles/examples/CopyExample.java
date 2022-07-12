@@ -1,6 +1,6 @@
 package com.jfiles.examples;
 
-import com.jfiles.JFiles;
+import com.jfiles.JFiles.JFiles;
 
 import java.io.File;
 

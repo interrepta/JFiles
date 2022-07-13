@@ -8,16 +8,19 @@ import java.io.IOException;
 /**
  * Class copy files or directories.
  */
-public final class Copy {
+public final class Copy extends Task {
 
-    /**
-     * Copy files.
-     * @param sourceFile source file
-     * @param destinationFile destination file
-     * @return copyFlag - copy flag
-     */
-    public boolean copyFile(final File sourceFile, final File destinationFile) {
+    private final File sourceFile;
+    private final File destinationFile;
 
+    public Copy(final File sourceFile, final File destinationFile) {
+        this.sourceFile = sourceFile;
+        this.destinationFile = destinationFile;
+        make();
+    }
+
+    @Override
+    public void run() {
         final boolean isSourceFileDirectory = FileUtils.isDirectory(sourceFile);
         final boolean isDestinationFileDirectory = FileUtils.isDirectory(destinationFile);
         final boolean isSourceFileFile = !isSourceFileDirectory;
@@ -25,32 +28,24 @@ public final class Copy {
         final boolean onlySecondFileIsDirectory = isSourceFileFile && isDestinationFileDirectory;
         final boolean areAllFilesDirectories = isSourceFileDirectory && isDestinationFileDirectory;
 
-        boolean copyFlag = false;
-
         if (areAllFilesDirectories) {
             try {
                 FileUtils.copyDirectoryToDirectory(sourceFile, destinationFile);
-                copyFlag = true;
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         } else if (onlySecondFileIsDirectory) {
             try {
                 FileUtils.copyFileToDirectory(sourceFile, destinationFile);
-                copyFlag = true;
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         } else {
             try {
                 FileUtils.copyFile(sourceFile, destinationFile);
-                copyFlag = true;
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
-
-        return copyFlag;
     }
-
 }

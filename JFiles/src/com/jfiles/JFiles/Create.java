@@ -8,9 +8,20 @@ import java.io.IOException;
 /**
  * Creates files or directories.
  */
-public class Create {
+public class Create extends Task {
 
-    public void create(final File file, final boolean createDirectory) {
+    private final File file;
+    private final boolean createDirectory;
+    private boolean makeFlag;
+
+    public Create(final File file, final boolean createDirectory) {
+        this.file = file;
+        this.createDirectory = createDirectory;
+        make();
+    }
+
+    public void run() {
+        makeFlag = false;
         if (createDirectory) {
             try {
                 FileUtils.forceMkdir(file);
@@ -25,5 +36,4 @@ public class Create {
             }
         }
     }
-
 }

@@ -4,6 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.CanWriteFileFilter;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
 
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class FilesList implements Task {
 
     @Override
     public void make() {
-        Collection <File> filesCollection = FileUtils.listFilesAndDirs(sourceDirectory, CanWriteFileFilter.CAN_WRITE, DirectoryFileFilter.DIRECTORY);
+        Collection <File> filesCollection = FileUtils.listFiles(sourceDirectory, extensions, recursive);
         filesList = filesCollection.stream().toList();
     }
 

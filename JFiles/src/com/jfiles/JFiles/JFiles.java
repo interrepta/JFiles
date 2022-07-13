@@ -1,6 +1,7 @@
 package com.jfiles.JFiles;
 
 import java.io.File;
+import java.util.List;
 
 public final class JFiles {
 
@@ -17,6 +18,10 @@ public final class JFiles {
 
     public void move(final File sourceFile, final File destinationFile) {
         new Move(sourceFile, destinationFile).make();
+    }
+
+    public List<File> filesList(final File sourceDirectory, final String [] extensions, final boolean recursive) {
+        return new FilesList(sourceDirectory, extensions, recursive).get();
     }
 
 }

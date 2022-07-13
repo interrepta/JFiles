@@ -1,7 +1,5 @@
 package com.jfiles.JFiles;
 
-import org.apache.commons.io.FileUtils;
-
 import java.io.File;
 
 public final class Move implements Task {

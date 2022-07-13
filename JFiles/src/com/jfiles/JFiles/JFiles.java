@@ -15,4 +15,8 @@ public final class JFiles {
         new Remove(file);
     }
 
+    public void move(final File sourceFile, final File destinationFile) {
+        new Move(sourceFile, destinationFile).make();
+    }
+
 }

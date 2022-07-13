@@ -8,19 +8,19 @@ import java.io.IOException;
 /**
  * Class copy files or directories.
  */
-public final class Copy extends Task {
+public final class Copy implements Task {
 
     private final File sourceFile;
     private final File destinationFile;
 
-    public Copy(final File sourceFile, final File destinationFile) {
+    protected Copy(final File sourceFile, final File destinationFile) {
         this.sourceFile = sourceFile;
         this.destinationFile = destinationFile;
         make();
     }
 
     @Override
-    public void run() {
+    public void make() {
         final boolean isSourceFileDirectory = FileUtils.isDirectory(sourceFile);
         final boolean isDestinationFileDirectory = FileUtils.isDirectory(destinationFile);
         final boolean isSourceFileFile = !isSourceFileDirectory;

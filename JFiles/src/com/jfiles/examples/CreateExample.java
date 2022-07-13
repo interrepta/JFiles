@@ -8,8 +8,8 @@ public final class CreateExample {
 
     public static void main(String[] args) {
 
-        new JFiles().create(new File("examples/file3"), true);
-        new JFiles().create(new File("examples/file33"), false);
+        new JFiles().create(new File("examples/dir2"), true);
+        new JFiles().create(new File("examples/file2"), false);
     }
 
 }

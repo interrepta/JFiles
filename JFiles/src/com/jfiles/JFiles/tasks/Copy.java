@@ -1,5 +1,6 @@
-package com.jfiles.JFiles;
+package com.jfiles.JFiles.tasks;
 
+import com.jfiles.JFiles.Task;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -13,7 +14,7 @@ public final class Copy implements Task {
     private final File sourceFile;
     private final File destinationFile;
 
-    protected Copy(final File sourceFile, final File destinationFile) {
+    public Copy(final File sourceFile, final File destinationFile) {
         this.sourceFile = sourceFile;
         this.destinationFile = destinationFile;
         make();

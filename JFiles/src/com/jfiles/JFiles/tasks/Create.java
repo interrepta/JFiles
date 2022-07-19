@@ -1,5 +1,6 @@
-package com.jfiles.JFiles;
+package com.jfiles.JFiles.tasks;
 
+import com.jfiles.JFiles.Task;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -14,7 +15,7 @@ public class Create implements Task {
     private final boolean createDirectory;
     private boolean makeFlag;
 
-    protected Create(final File file, final boolean createDirectory) {
+    public Create(final File file, final boolean createDirectory) {
         this.file = file;
         this.createDirectory = createDirectory;
         make();

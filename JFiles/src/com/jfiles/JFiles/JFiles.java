@@ -1,5 +1,7 @@
 package com.jfiles.JFiles;
 
+import com.jfiles.JFiles.tasks.*;
+
 import java.io.File;
 import java.util.List;
 
@@ -22,6 +24,16 @@ public final class JFiles {
 
     public List<File> filesList(final File sourceDirectory, final String [] extensions, final boolean recursive) {
         return new FilesList(sourceDirectory, extensions, recursive).get();
+    }
+
+    public void write(final File file, final List<String> data) {
+        new Write(file, data).make();
+    }
+
+    public List<String> read(final File sourceFile) {
+        final Read read = new Read(sourceFile);
+        read.make();
+        return read.data();
     }
 
 }

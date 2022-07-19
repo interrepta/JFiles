@@ -1,5 +1,6 @@
-package com.jfiles.JFiles;
+package com.jfiles.JFiles.tasks;
 
+import com.jfiles.JFiles.Task;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.CanWriteFileFilter;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
